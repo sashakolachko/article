@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/normilize.css">
+  <title>Article</title>
+</head>
+
+<body>
+  <article class="container">
+    <h1>Modern HTML Explained For Dinosaurs</h1>
+    <img src="images/2.png" alt="first dinosaurus">
+    <p>Out of the three main frontend technologies (HTML, CSS, and JavaScript), HTML has remained the most consistent. If your only concern was creating content, an HTML document from the 1990s would look pretty similar to one created in 2018:</p>
+
+    <pre class="block-pre">
+        <xmp class="block-xmp">
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta charset="utf-8">
+              <title>My test page</title>
+            </head>
+            <body>
+              <h1>Hello there!</h1>
+            </body>
+          </html>
+        </xmp>
+      </pre>
+
+    <p>You have elements with tags and content, tags with attributes — other than the simplified <span class="through">doctype</span> on the first line, not much has changed! However, over the years web development has taken a dramatic shift from creating static web sites (with a focus on content) to creating dynamic web applications (with a focus on interaction)— something the web wasn’t originally designed to do. Creating custom user interfaces that are still semantic and accessible, improving performance using attributes and tooling, organizing code for reuse and maintainability — there are now a whole new set of concerns at play.
+    </p>
+    <p>The goal of this article is to provide a historical context of how HTML has evolved to the language it is today in 2018. We’ll start with the fundamentals of well structured and accessible HTML, just like the dinosaurs of old. Then we’ll introduce different techniques to improve performance, responsiveness, and maintainability. CSS and JavaScript will inevitably make its way into this conversation; for the purposes of this article, they will be covered from the perspective of how they impact the writing of HTML itself. By understanding this history, you will be able to take full advantage of both old and new features of the language that can often be overlooked. Let’s get started!
+    </p>
+
+    <h3>Writing content with semantic elements</h3>
+
+    <p>Let’s add some more content to the earlier HTML example. For now we’ll make a basic website with a navigation section with links and a search input, a large showcase section for displaying general site info (often referred to as a hero section or <a href="https://en.wikipedia.org/wiki/Jumbotron">jumbotron</a>), three column sections for articles, and a footer section for copyright info.</p>
+
+      <pre class="block-pre">
+        <xmp class="block-xmp">
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta charset="utf-8">
+              <title>My test page</title>
+            </head>
+            <body>
+              <div class="navbar">
+                <ul>
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                  <li>
+                    <a href="#">Info</a>
+                  </li>
+                  <li>
+                    <a href="#">About</a>
+                  </li>
+                </ul>
+                <form>
+                  <input type="text" placeholder="Search">
+                  <button type="submit">Search</button>
+                </form>
+              </div>
+              <div class="main">
+                <div class="hero">
+                  <h1>Hello there!</h1>
+                  <p>General info about the page goes here</p>
+                  <p><a href="#">Learn more</a></p>
+                </div>
+                <div class="grid">
+                  <div class="column">
+                    <h2>First Heading</h2>
+                    <p>Article content goes here</p>
+                    <p><a href="#">View details</a></p>
+                  </div>
+                  <div class="column">
+                    <h2>Second Heading</h2>
+                    <p>Article content goes here</p>
+                    <p><a href="#">View details</a></p>
+                  </div>
+                  <div class="column">
+                    <h2>Third Heading</h2>
+                    <p>Article content goes here</p>
+                    <p><a href="#">View details</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="footer">
+                <p>Copyright info goes here</p>
+              </div>
+            </body>
+          </html>
+        </xmp>
+      </pre>
+      <p>
+      Here we’re using basic elements with tags like
+      <code class="code-inline">  &lt;div&gt; </code>, <code class="code-inline"> &lt;h1&gt; </code>, <code class="code-inline"> &lt;h2&gt; </code>, <code class="code-inline"> &lt;p&gt; </code> etc., to mark the content. The HTML here works, but it’s not fully <a href="https://en.wikipedia.org/wiki/Semantic_HTML">semantic</a> — that is to say, the tags do not communicate the meaning of the content as well as they could.</p>
+      <p>When HTML5 was introduced in 2008, it provided new elements to improve document semantics. Here’s an attempt to make the HTML more semantic (with changes in bold):
+      </p>
+      <pre class="block-pre">
+        <xmp class="block-xmp">
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width,
+              initial-scale=1, shrink-to-fit=no">
+              <meta name="description" content="">
+              <meta name="author" content="">
+              <title>My test page</title>
+              <!--[if lt IE 9]>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/
+                3.7.3/html5shiv.js"></script>
+              <![endif]-->
+            </head>
+            <body>
+              <nav role="navigation">
+                <ul>
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                  <li>
+                    <a href="#">Info</a>
+                  </li>
+                  <li>
+                    <a href="#">About</a>
+                  </li>
+                </ul>
+                <form>
+                  <input type="text" placeholder="Search">
+                  <button type="submit">Search</button>
+                </form>
+              </nav>
+              <main role="main">
+                <section class="hero">
+                  <h1>Hello there!</h1>
+                  <p>General info about the page goes here</p>
+                  <p><a href="#">Learn more</a></p>
+                </section>
+                <section class="grid">
+                  <article class="column">
+                    <h2>First Heading</h2>
+                    <p>Article content goes here</p>
+                    <p><a href="#">View details</a></p>
+                  </article>
+                  <article class="column">
+                    <h2>Second Heading</h2>
+                    <p>Article content goes here</p>
+                    <p><a href="#">View details</a></p>
+                  </article>
+                  <article class="column">
+                    <h2>Third Heading</h2>
+                    <p>Article content goes here</p>
+                    <p><a href="#">View details</a></p>
+                  </article>
+                </section>
+              </main>
+              <footer role="contentinfo">
+                <p>Copyright info goes here</p>
+              </footer>
+            </body>
+          </html>
+        </xmp>
+      </pre>
+      <p>Let’s examine some of the these changes:</p>
+      <ul>
+        <li>
+          <p class="li-p">The <code class="code-inline">&lt;html lang="en"&gt;</code> specifies the language of the document, which helps search engines and browsers identify the appropriate content.</p>
+        </li>
+        <li>
+          <p class="li-p">The additional <code class="code-inline">&lt;meta&gt;</code> tags provides information about the site not directly visible on page, used by search engines and other services. They also provide information about how to size the content on different devices.</p>
+        </li>
+        <li>
+          <p class="li-p">The <code class="code-inline">&lt;nav&gt;</code>,<code class="code-inline">&lt;main&gt;</code>, <code class="code-inline">&lt;section&gt;</code>, <code class="code-inline">&lt;article&gt;</code>, and <code class="code-inline">&lt;footer&gt;</code> tags provide more accessible structure to the HTML document (compared to generic <code class="code-inline">&lt;div&gt;</code> tags). These tags were introduced with HTML5.</p>
+        </li>
+        <li>
+          <p class="li-p"> The <code class="code-inline"> &lt;!-- [if lt IE 9]&gt...--&gt;</code> comment adds a JavaScript file that only gets loaded for older versions of Internet Explorer, since they don’t support the above HTML5 tags. Note that many recent websites don’t include that comment these days, as fewer sites support those browsers.</p>
+        </li>
+        <li>
+          <p class="li-p">The <code class="code-inline">role</code> attributes provide accessibility information as well. Note that using a <code class="code-inline">&lt;nav&gt;</code> tag generally is enough for accessibility, adding the extra <code class="code-inline">role="navigation"</code> is used in case the <code class="code-inline">&lt;nav&gt;</code> tag isn’t recognized.</p>
+        </li>
+      </ul>
+      <p>Writing semantic HTML can seem unimportant, especially when it doesn’t affect the visual appearance of a website. However, your website is being viewed by more than just human beings — web browsers, search engines, screen readers all depend on semantic HTML to function properly.</p>
+      <h3>Improving accessibility with WAI-ARIA attributes</h3>
+      <p>Let’s look at the search input in the navbar from our example above:</p>
+
+      <pre class="block-pre">
+        <xmp class="block-xmp">
+          <form>
+            <input type="text" placeholder="Search">
+            <button type="submit">Search</button>
+          </form>
+        </xmp>
+      </pre>
+      <p>This input element uses a <code class="code-inline">placeholder</code> attribute instead of a label element to let the user know its purpose. This works for humans, but it’s not properly semantic HTML, and can be missed by screen readers and other technologies. The way to make this accessible is to use an <code class="code-inline">aria-label</code> attribute:</p>
+
+      <pre class="block-pre">
+        <xmp class="block-xmp">
+          <form>
+            <input type="text" placeholder="Search" aria-label="Search">
+            <button type="submit">Search</button>
+          </form>
+        </xmp>
+      </pre>
+
+      <p>WAI-ARIA, which stands for <em>“Web Accessibility Initiative — Accessible Rich Internet Applications”</em> (often simply ARIA for short), is a set of attributes that makes HTML more accessible when semantic tags aren’t enough. The <code class="code-inline">role</code> attribute seen in the previous section is an ARIA attribute. So far these attributes seem like minor changes, but it becomes much more important as we use HTML for things beyond basic documents.</p>
+
+      <p>Let’s look at a more complex example — say we want to add some tabbed content in our HTML to provide instructions on how to install some program on Windows, Mac, and Linux. Since there’s no native way of building tabs in HTML, we have to make do with things like unordered lists, links, and divs to construct our own tab markup. Here we can use accessibility attributes such as <code class="code-inline">role</code>, <code class="code-inline">aria-controls</code>, <code class="code-inline">aria-selected</code>, and <code class="code-inline">aria-labelledby</code> to mark up the HTML, as seen below:
+      </p>
+      <pre class="block-pre">
+        <xmp class="block-xmp">
+          <ul role="tablist">
+            <li>
+              <a id="windows-tab" href="#windows" role="tab" aria-controls=
+            "windows" aria-selected="true">Windows</a>
+            </li>
+            <li>
+              <a id="mac-tab" href="#mac" role="tab" aria-controls="mac"
+            aria-selected="false">Mac</a>
+            </li>
+            <li>
+              <a id="linux-tab" href="#linux" role="tab" aria-controls=
+            "linux" aria-selected="false">Linux</a>
+            </li>
+          </ul>
+          <div>
+            <div id="windows" role="tabpanel" aria-labelledby="windows-tab">
+              <img src="http://1000logos.net/wp-content/uploads/2017/04/
+            Microsoft-Logo.png" alt="microsoft logo">
+              ...
+            </div>
+            <div id="mac" role="tabpanel" aria-labelledby="mac-tab">
+              <img src="https://i.ytimg.com/vi/ipOzBWuYZvg/maxresdefault.jpg"
+            alt="apple logo">
+              ...
+            </div>
+            <div id="linux" role="tabpanel" aria-labelledby="linux-tab">
+              <img src="https://noware.tech/wp-content/uploads/sites/140/2018
+            /04/linux-1024x565.jpg" alt="linux logo">
+              ...
+            </div>
+          </div>
+        </xmp>
+      </pre>
+      <p>Without these accessibility attributes, the tabbed content would have no discernible relationship with the tab controls. Having these attributes helps screen readers identify content, enables keyboard shortcuts with proper tabbing, etc. Using appropriate ARIA attributes can be a whole study in and of itself — for a deeper dive, check out the <span class="underline">official guidelines</span>.</p>
+      <p>All this may seem like a lot of work just to improve the accessibility of a website. It’s important to acknowledge accessibility as an integral part of the web, which was designed as a platform to freely share information with everyone, not just a select few. Making a website accessible improves the experience for every visitor — for example, accessible keyboard shortcuts help those who can never use a mouse, those who temporarily can’t use a mouse, and those who prefer to not use a mouse (a.k.a., most programmers). Accessibility can be easy to overlook when dealing with other features, but it should not be ignored.</p>
+
+      <blockquote class="quotes">If you’re interested in improving the accessibility of your website, there are checklists such as <a href="https://a11yproject.com/checklist/">this one</a> from the <a href="https://a11yproject.com/">A11Y project</a>, which is a great place to start. However, making a website accessible isn’t purely about checking off items — it’s something that can always be improved, like any aspect of user experience. <strong>The best way to make your website accessible is to actually use your website as different people in your audience would</strong> — test it out using a screen reader, try only using a keyboard instead of a mouse, view your website using a <a href="https://www.toptal.com/designers/colorfilter">color blind filter</a>, etc.
+      </blockquote>
+      <h3>Making it pretty with CSS and JavaScript</h3>
+      <p>If we take a look at the website so far, it looks pretty bare as you would expect:</p>
+      <img src="images/3.png" alt="site without CSS">
+      <p>In order to spruce it up, we’ll add a CSS file to apply styling. Now if you’re not particularly good at CSS, it could take you many days to make this website look pretty. Instead of writing your own CSS, you could always use a CSS framework, which is essentially CSS that someone else wrote in a reusable manner.</p>
+      <p>One popular CSS framework is Bootstrap, which came out in 2011 and quickly became adopted and used by <span class="underline">literally millions of websites</span>. Let’s see what the code would look like using Bootstrap (changes in bold):</p>
+
+      <pre class="block-pre">
+        <xmp class="block-xmp">
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1,
+               shrink-to-fit=no">
+              <meta name="description" content="">
+              <meta name="author" content="">
+              <title>My test page</title>
+              <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/
+              bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/
+              SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+              crossorigin="anonymous">
+              <!--[if lt IE 9]>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/
+                3.7.3/html5shiv.js"></script>
+              <![endif]-->
+            </head>
+            <body>
+              <nav class="navbar navbar-expand-lg navbar-light bg-light"
+              role="navigation">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Info</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="text"
+                  placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0"
+                  type="submit">Search</button>
+                </form>
+              </nav>
+              <main role="main">
+                <section class="jumbotron">
+                  <h1 class="display-4">Hello there!</h1>
+                  <p class="lead">General info about the page goes here</p>
+                  <p><a class="btn btn-primary btn-lg" href="#">Learn more</a></p>
+                </section>
+                <section class="container">
+                  <div class="row">
+                    <article class="col-4">
+                      <h2>First Heading</h2>
+                      <p>Article content goes here</p>
+                      <p><a href="#">View details</a></p>
+                    </article>
+                    <article class="col-4">
+                      <h2>Second Heading</h2>
+                      <p>Article content goes here</p>
+                      <p><a href="#">View details</a></p>
+                    </article>
+                    <article class="col-4">
+                      <h2>Third Heading</h2>
+                      <p>Article content goes here</p>
+                      <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" data-toggle="tab"
+                          id="windows-tab" href="#windows" role="tab"
+                          aria-controls="windows" aria-selected="true">Windows</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" id="mac-tab"
+                          href="#mac" role="tab" aria-controls="mac"
+                          aria-selected="false">Mac</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" id="linux-tab"
+                          href="#linux" role="tab" aria-controls="linux"
+                          aria-selected="false">Linux</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content">
+                        <div class="tab-pane fade show active" id="windows"
+                        role="tabpanel" aria-labelledby="windows-tab">
+                          <img class="img-fluid" src="http://1000logos.net/wp-content
+                          /uploads/2017/04/Microsoft-Logo.png" alt="microsoft logo">
+                          ...
+                        </div>
+                        <div class="tab-pane fade" id="mac" role="tabpanel"
+                        aria-labelledby="mac-tab">
+                          <img class="img-fluid" src="https://i.ytimg.com/vi/
+                          ipOzBWuYZvg/maxresdefault.jpg" alt="apple logo">
+                          ...
+                        </div>
+                        <div class="tab-pane fade" id="linux" role="tabpanel"
+                        aria-labelledby="linux-tab">
+                          <img class="img-fluid" src="https://noware.tech/
+                          wp-content/uploads/sites/140/2018/04/linux-1024x565.jpg"
+                          alt="linux logo">
+                          ...
+                        </div>
+                      </div>
+                      <p><a href="#">View details</a></p>
+                    </article>
+                  </div>
+                </section>
+              </main>
+              <footer class="navbar navbar-dark bg-secondary" role="contentinfo">
+                <p>Copyright info goes here</p>
+              </footer>
+            </body>
+          </html>
+        </xmp>
+      </pre>
+      <p>Let’s examine the changes:</p>
+      <ul>
+        <li><p class="li-p">The <code class="code-inline">&lt;link&gt;</code> in the <code class="code-inline">&lt;head&gt;</code> tag adds the Bootstrap CSS to our site. Note that we’re linking to a file that’s hosted online, which can open up some <span class="underline">security risks</span> — the <code class="code-inline">integrity</code> and <code class="code-inline">crossorigin</code> attributes help ensure the file being linked to is correct.</p></li>
+        <li><p class="li-p">The classes that were added are all specific to Bootstrap — the Bootstrap CSS that was added has styles which target those specific class names with the specific HTML structure.</p></li>
+        <li><p class="li-p">One extra <code class="code-inline">&lt;div class="row"&gt;</code> was added to surround the three articles to take advantage of <span class="underline">Bootstrap’s grid layout system</span> (which uses this specific HTML structure).</p></li>
+      </ul>
+      <p>Here’s what the site looks like now:</p>
+      <img src="images/4.png" alt="test page">
+      <p>Not bad! Note that in order to use a CSS framework like Bootstrap, you actually don’t need to write any CSS at all to get started — you just need to add the appropriate classes to the HTML to take advantage of the CSS that comes with the framework.</p>
+      <p>One thing to note here is that while the tabs are styled properly (only one tab is visible at any moment), they don’t work properly yet — clicking on a tab doesn’t do anything. That’s because in this case this type of custom interaction isn’t handled by CSS — it’s handled by JavaScript. In this case, we can get the Bootstrap tabs to work by adding the JavaScript files that comes with the Bootstrap framework in the <code class="code-inline">&lt;head&gt;</code> tag:</p>
+      <pre class="block-pre">
+        <xmp class="block-xmp">
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-
+          q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+
+          <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/pop
+          per.min.js" integrity="sha384-
+          ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+           crossorigin="anonymous"></script>
+
+          <script
+          src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.
+          min.js" integrity="sha384-
+          ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+           crossorigin="anonymous"></script>
+        </xmp>
+      </pre>
+      <p>The last script is Bootstrap’s JavaScript. The first two are dependencies that Bootstrap uses (jQuery and Popper), which must be loaded first before the Bootstrap script is loaded. If you check out this <span class="underline">live example</span>, you can see that the tabs now work!</p>
+      <p>Bootstrap became widely used because it helped with the major pain points of CSS at the time, such as browser inconsistencies and a lack of a proper grid system. There are some downsides of using CSS frameworks like Bootstrap — in particular, they can be difficult to customize compared to writing CSS from scratch, which can make your website seem generic compared to others.</p>
+      <p>Also, with the rise of smartphones and mobile traffic, reducing CSS and JS file sizes became increasingly important — anything above a few kilobytes can significantly affect performance on slower internet connections. The way we’re using Bootstrap in the above example, we’re requiring the user to download the entire Bootstrap framework with the site, even though we’re only using a couple of styles and features. In the next section, we’ll take a look at several techniques to help tackle these performance issues.</p>
+      <blockquote class="quotes">
+        Note: A solid grasp of CSS and JavaScript is intrinsically linked to making sophisticated websites with HTML; however, a deep dive into these languages is outside the scope of this article. If you’d like to learn more about the fundamentals of CSS and JavaScript, the <a href="https://developer.mozilla.org/en-US/">MDN Web Docs</a> are always a good place to start. If you want to get a better understanding of how all the newer features of CSS (flexbox, grid, SASS, etc.) fit together with all the tooling and techniques involved with it, check out my article <a href="https://medium.com/actualize-network/modern-css-explained-for-dinosaurs-5226febe3525">Modern CSS Explained For Dinosaurs</a>.
+      </blockquote>
+      <img src="images/5.png" alt="dinosaurs secong image">
+      <h3>Improving performance with HTML attributes</h3>
+      <p>At this point we have a website with reasonably well organized, semantic HTML. And if this is all we are considering, then our website would be done! Yet there are many areas where the site can be improved, in terms of both performance (how quickly the website loads for a user) and maintainability (how easy the code is to change for a developer).</p>
+      <h4>The defer attribute for scripts</h4>
+      <p>For our website, one major optimization is to address the JavaScript files that are being loaded in the header. These files are large enough to actually slow down the website. In order to render a page, a web browser reads the given HTML and converts it into a format it understands — the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">Document Object Model</a>, or DOM. As you might expect, a web browser starts at the top of the HTML document and works its way down. That means if it sees a <code class="code-inline">&lt;script&gt;</code> tag, it will download and execute the script before moving on to the next line. You can see an illustration of this process here:</p>
+
+
+
+  </article>
+
+</body>
+
+</html>
