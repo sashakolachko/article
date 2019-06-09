@@ -106,7 +106,10 @@
       <p>
         Here we’re using basic elements with tags like
         <code class="code-inline"> &lt;div&gt; </code>, <code class="code-inline"> &lt;h1&gt; </code>, <code class="code-inline"> &lt;h2&gt; </code>, <code class="code-inline"> &lt;p&gt; </code> etc., to mark the content. The HTML here works, but
-        it’s not fully <a class="a-p" href="https://en.wikipedia.org/wiki/Semantic_HTML">semantic</a> — that is to say, the tags do not communicate the meaning of the content as well as they could.</p>
+        it’s not fully
+        <a class="a-p" href="https://en.wikipedia.org/wiki/Semantic_HTML">semantic</a>
+         — that is to say, the tags do not communicate the meaning of the content as well as they could.
+       </p>
       <p>When HTML5 was introduced in 2008, it provided new elements to improve document semantics. Here’s an attempt to make the HTML more semantic (with changes in bold):
       </p>
       <pre class="block-pre">
@@ -173,7 +176,7 @@
                 &lt;/body&gt;
               &lt;/html&gt;
           </code>
-        </pre>
+      </pre>
       <p>Let’s examine some of the these changes:</p>
       <ul>
         <li>
@@ -184,20 +187,23 @@
             the content on different devices.</p>
         </li>
         <li>
-          <p class="li-p">The <code class="code-inline">&lt;nav&gt;</code>,<code class="code-inline">&lt;main&gt;</code>, <code class="code-inline">&lt;section&gt;</code>, <code class="code-inline">&lt;article&gt;</code>, and <code
-              class="code-inline">&lt;footer&gt;</code> tags provide more accessible structure to the HTML document (compared to generic <code class="code-inline">&lt;div&gt;</code> tags). These tags were introduced with HTML5.</p>
+          <p class="li-p">The <code class="code-inline">&lt;nav&gt;</code>,<code class="code-inline">&lt;main&gt;</code>, <code class="code-inline">&lt;section&gt;</code>, <code class="code-inline">&lt;article&gt;</code>, and
+            <code class="code-inline">&lt;footer&gt;</code> tags provide more accessible structure to the HTML document (compared to generic <code class="code-inline">&lt;div&gt;</code> tags). These tags were introduced with HTML5.
+          </p>
         </li>
         <li>
           <p class="li-p"> The <code class="code-inline"> &lt;!-- [if lt IE 9]&gt...--&gt;</code> comment adds a JavaScript file that only gets loaded for older versions of Internet Explorer, since they don’t support the above HTML5 tags. Note that
             many recent websites don’t include that comment these days, as fewer sites support those browsers.</p>
         </li>
         <li>
-          <p class="li-p">The <code class="code-inline">role</code> attributes provide accessibility information as well. Note that using a <code class="code-inline">&lt;nav&gt;</code> tag generally is enough for accessibility, adding the extra <code
-              class="code-inline">role="navigation"</code> is used in case the <code class="code-inline">&lt;nav&gt;</code> tag isn’t recognized.</p>
+          <p class="li-p">The <code class="code-inline">role</code> attributes provide accessibility information as well. Note that using a <code class="code-inline">&lt;nav&gt;</code> tag generally is enough for accessibility, adding the extra
+            <code class="code-inline">role="navigation"</code> is used in case the
+            <code class="code-inline">&lt;nav&gt;</code> tag isn’t recognized.
+          </p>
         </li>
       </ul>
-      <p>Writing semantic HTML can seem unimportant, especially when it doesn’t affect the visual appearance of a website. However, your website is being viewed by more than just human beings — web browsers, search engines, screen readers all depend
-        on semantic HTML to function properly.</p>
+      <p>Writing semantic HTML can seem unimportant, especially when it doesn’t affect the visual appearance of a website. However, your website is being viewed by more than just human beings — web browsers, search engines, screen readers all depend on semantic HTML to function properly.
+      </p>
       <h3>Improving accessibility with WAI-ARIA attributes</h3>
       <p>Let’s look at the search input in the navbar from our example above:</p>
 
@@ -208,9 +214,9 @@
               <button type="submit">Search</button>
             </form>
           </xmp>
-        </pre>
-      <p>This input element uses a <code class="code-inline">placeholder</code> attribute instead of a label element to let the user know its purpose. This works for humans, but it’s not properly semantic HTML, and can be missed by screen readers and
-        other technologies. The way to make this accessible is to use an <code class="code-inline">aria-label</code> attribute:</p>
+      </pre>
+      <p>This input element uses a <code class="code-inline">placeholder</code> attribute instead of a label element to let the user know its purpose. This works for humans, but it’s not properly semantic HTML, and can be missed by screen readers and other technologies. The way to make this accessible is to use an <code class="code-inline">aria-label</code> attribute:
+      </p>
 
       <pre class="block-pre">
           <xmp class="block-xmp">
@@ -219,16 +225,18 @@
               <button type="submit">Search</button>
             </form>
           </xmp>
-        </pre>
+      </pre>
     </section>
 
     <section>
-      <p>WAI-ARIA, which stands for <em>“Web Accessibility Initiative — Accessible Rich Internet Applications”</em> (often simply ARIA for short), is a set of attributes that makes HTML more accessible when semantic tags aren’t enough. The <code
-          class="code-inline">role</code> attribute seen in the previous section is an ARIA attribute. So far these attributes seem like minor changes, but it becomes much more important as we use HTML for things beyond basic documents.</p>
+      <p>WAI-ARIA, which stands for <em>“Web Accessibility Initiative — Accessible Rich Internet Applications”</em> (often simply ARIA for short), is a set of attributes that makes HTML more accessible when semantic tags aren’t enough. The
+      <code class="code-inline">role</code> attribute seen in the previous section is an ARIA attribute. So far these attributes seem like minor changes, but it becomes much more important as we use HTML for things beyond basic documents.
+      </p>
 
-      <p>Let’s look at a more complex example — say we want to add some tabbed content in our HTML to provide instructions on how to install some program on Windows, Mac, and Linux. Since there’s no native way of building tabs in HTML, we have to
-        make do with things like unordered lists, links, and divs to construct our own tab markup. Here we can use accessibility attributes such as <code class="code-inline">role</code>, <code class="code-inline">aria-controls</code>, <code
-          class="code-inline">aria-selected</code>, and <code class="code-inline">aria-labelledby</code> to mark up the HTML, as seen below:
+      <p>Let’s look at a more complex example — say we want to add some tabbed content in our HTML to provide instructions on how to install some program on Windows, Mac, and Linux. Since there’s no native way of building tabs in HTML, we have to make do with things like unordered lists, links, and divs to construct our own tab markup. Here we can use accessibility attributes such as
+        <code class="code-inline">role</code>, <code class="code-inline">aria-controls</code>,
+        <code class="code-inline">aria-selected</code>, and
+        <code class="code-inline">aria-labelledby</code> to mark up the HTML, as seen below:
       </p>
       <pre class="block-pre">
           <code class="code-block">
@@ -264,18 +272,16 @@
               &lt;/div&gt;
             &lt;/div&gt;
           </code>
-        </pre>
-      <p>Without these accessibility attributes, the tabbed content would have no discernible relationship with the tab controls. Having these attributes helps screen readers identify content, enables keyboard shortcuts with proper tabbing, etc.
-        Using appropriate ARIA attributes can be a whole study in and of itself — for a deeper dive, check out the <span class="underline">official guidelines</span>.</p>
-      <p>All this may seem like a lot of work just to improve the accessibility of a website. It’s important to acknowledge accessibility as an integral part of the web, which was designed as a platform to freely share information with everyone, not
-        just a select few. Making a website accessible improves the experience for every visitor — for example, accessible keyboard shortcuts help those who can never use a mouse, those who temporarily can’t use a mouse, and those who prefer to not
-        use a mouse (a.k.a., most programmers). Accessibility can be easy to overlook when dealing with other features, but it should not be ignored.</p>
+      </pre>
+      <p>Without these accessibility attributes, the tabbed content would have no discernible relationship with the tab controls. Having these attributes helps screen readers identify content, enables keyboard shortcuts with proper tabbing, etc. Using appropriate ARIA attributes can be a whole study in and of itself — for a deeper dive, check out the <span class="underline">official guidelines</span>.
+      </p>
+      <p>All this may seem like a lot of work just to improve the accessibility of a website. It’s important to acknowledge accessibility as an integral part of the web, which was designed as a platform to freely share information with everyone, not  just a select few. Making a website accessible improves the experience for every visitor — for example, accessible keyboard shortcuts help those who can never use a mouse, those who temporarily can’t use a mouse, and those who prefer to not use a mouse (a.k.a., most programmers). Accessibility can be easy to overlook when dealing with other features, but it should not be ignored.
+      </p>
 
-
-
-      <blockquote class="quotes">If you’re interested in improving the accessibility of your website, there are checklists such as <a class="a-p" href="https://a11yproject.com/checklist/">this one</a> from the <a class="a-p"
-          href="https://a11yproject.com/">A11Y project</a>, which is a great place to start. However, making a website accessible isn’t purely about checking off items — it’s something that can always be improved, like any aspect of user experience.
-        <strong>The best way to make your website accessible is to actually use your website as different people in your audience would</strong> — test it out using a screen reader, try only using a keyboard instead of a mouse, view your website using a <a class="a-p" href="https://www.toptal.com/designers/colorfilter">color blind filter</a>, etc.
+      <blockquote class="quotes">If you’re interested in improving the accessibility of your website, there are checklists such as <a class="a-p" href="https://a11yproject.com/checklist/">this one</a> from the
+        <a class="a-p" href="https://a11yproject.com/">A11Y project</a>, which is a great place to start. However, making a website accessible isn’t purely about checking off items — it’s something that can always be improved, like any aspect of user experience.
+        <strong>The best way to make your website accessible is to actually use your website as different people in your audience would</strong> — test it out using a screen reader, try only using a keyboard instead of a mouse, view your website
+        using a <a class="a-p" href="https://www.toptal.com/designers/colorfilter">color blind filter</a>, etc.
       </blockquote>
     </section>
 
@@ -285,7 +291,8 @@
       <img src="images/3.png" alt="site without CSS">
       <p>In order to spruce it up, we’ll add a CSS file to apply styling. Now if you’re not particularly good at CSS, it could take you many days to make this website look pretty. Instead of writing your own CSS, you could always use a CSS framework,
         which is essentially CSS that someone else wrote in a reusable manner.</p>
-      <p>One popular CSS framework is Bootstrap, which came out in 2011 and quickly became adopted and used by <span class="underline">literally millions of websites</span>. Let’s see what the code would look like using Bootstrap (changes in bold):</p>
+      <p>One popular CSS framework is Bootstrap, which came out in 2011 and quickly became adopted and used by <span class="underline">literally millions of websites</span>. Let’s see what the code would look like using Bootstrap (changes in bold):
+      </p>
 
       <pre class="block-pre">
         <code class="code-block">
@@ -411,67 +418,68 @@
           <p class="li-p">The classes that were added are all specific to Bootstrap — the Bootstrap CSS that was added has styles which target those specific class names with the specific HTML structure.</p>
         </li>
         <li>
-          <p class="li-p">One extra <code class="code-inline">&lt;div class="row"&gt;</code> was added to surround the three articles to take advantage of <span class="underline">Bootstrap’s grid layout system</span> (which uses this specific HTML
-            structure).</p>
+          <p class="li-p">One extra <code class="code-inline">&lt;div class="row"&gt;</code> was added to surround the three articles to take advantage of <span class="underline">Bootstrap’s grid layout system</span> (which uses this specific HTML structure).
+          </p>
         </li>
       </ul>
       <p>Here’s what the site looks like now:</p>
       <img src="images/4.png" alt="test page">
-      <p>Not bad! Note that in order to use a CSS framework like Bootstrap, you actually don’t need to write any CSS at all to get started — you just need to add the appropriate classes to the HTML to take advantage of the CSS that comes with the
-        framework.</p>
-      <p>One thing to note here is that while the tabs are styled properly (only one tab is visible at any moment), they don’t work properly yet — clicking on a tab doesn’t do anything. That’s because in this case this type of custom interaction isn’t
-        handled by CSS — it’s handled by JavaScript. In this case, we can get the Bootstrap tabs to work by adding the JavaScript files that comes with the Bootstrap framework in the <code class="code-inline">&lt;head&gt;</code> tag:</p>
+      <p>Not bad! Note that in order to use a CSS framework like Bootstrap, you actually don’t need to write any CSS at all to get started — you just need to add the appropriate classes to the HTML to take advantage of the CSS that comes with the framework.
+      </p>
+      <p>One thing to note here is that while the tabs are styled properly (only one tab is visible at any moment), they don’t work properly yet — clicking on a tab doesn’t do anything. That’s because in this case this type of custom interaction isn’t handled by CSS — it’s handled by JavaScript. In this case, we can get the Bootstrap tabs to work by adding the JavaScript files that comes with the Bootstrap framework in the <code class="code-inline">&lt;head&gt;</code> tag:
+      </p>
       <pre class="block-pre">
-            <xmp class="block-xmp">
-              <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-              integrity="sha384-
-              q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-              crossorigin="anonymous"></script>
+        <xmp class="block-xmp">
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-
+          q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
 
-              <script
-              src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/pop
-              per.min.js" integrity="sha384-
-              ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-               crossorigin="anonymous"></script>
+          <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/pop
+          per.min.js" integrity="sha384-
+          ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+           crossorigin="anonymous"></script>
 
-              <script
-              src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.
-              min.js" integrity="sha384-
-              ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-               crossorigin="anonymous"></script>
-            </xmp>
-          </pre>
-      <p>The last script is Bootstrap’s JavaScript. The first two are dependencies that Bootstrap uses (jQuery and Popper), which must be loaded first before the Bootstrap script is loaded. If you check out this <span class="underline">live
-          example</span>, you can see that the tabs now work!</p>
-      <p>Bootstrap became widely used because it helped with the major pain points of CSS at the time, such as browser inconsistencies and a lack of a proper grid system. There are some downsides of using CSS frameworks like Bootstrap — in particular,
-        they can be difficult to customize compared to writing CSS from scratch, which can make your website seem generic compared to others.</p>
-      <p>Also, with the rise of smartphones and mobile traffic, reducing CSS and JS file sizes became increasingly important — anything above a few kilobytes can significantly affect performance on slower internet connections. The way we’re using
-        Bootstrap in the above example, we’re requiring the user to download the entire Bootstrap framework with the site, even though we’re only using a couple of styles and features. In the next section, we’ll take a look at several techniques to
-        help tackle these performance issues.</p>
+          <script
+          src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.
+          min.js" integrity="sha384-
+          ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+           crossorigin="anonymous"></script>
+        </xmp>
+      </pre>
+
+      <p>The last script is Bootstrap’s JavaScript. The first two are dependencies that Bootstrap uses (jQuery and Popper), which must be loaded first before the Bootstrap script is loaded. If you check out this <span class="underline">live example</span>, you can see that the tabs now work!
+      </p>
+      <p>Bootstrap became widely used because it helped with the major pain points of CSS at the time, such as browser inconsistencies and a lack of a proper grid system. There are some downsides of using CSS frameworks like Bootstrap — in particular, they can be difficult to customize compared to writing CSS from scratch, which can make your website seem generic compared to others.
+      </p>
+      <p>Also, with the rise of smartphones and mobile traffic, reducing CSS and JS file sizes became increasingly important — anything above a few kilobytes can significantly affect performance on slower internet connections. The way we’re using Bootstrap in the above example, we’re requiring the user to download the entire Bootstrap framework with the site, even though we’re only using a couple of styles and features. In the next section, we’ll take a look at several techniques to help tackle these performance issues.
+      </p>
 
       <blockquote class="quotes">
-        Note: A solid grasp of CSS and JavaScript is intrinsically linked to making sophisticated websites with HTML; however, a deep dive into these languages is outside the scope of this article. If you’d like to learn more about the fundamentals of
-        CSS and JavaScript, the <a class="a-p" href="https://developer.mozilla.org/en-US/">MDN Web Docs</a> are always a good place to start. If you want to get a better understanding of how all the newer features of CSS (flexbox, grid, SASS, etc.) fit
-        together with all the tooling and techniques involved with it, check out my article <a class="a-p" href="https://medium.com/actualize-network/modern-css-explained-for-dinosaurs-5226febe3525">Modern CSS Explained For Dinosaurs</a>.
+        Note: A solid grasp of CSS and JavaScript is intrinsically linked to making sophisticated websites with HTML; however, a deep dive into these languages is outside the scope of this article. If you’d like to learn more about the fundamentals of CSS and JavaScript, the
+        <a class="a-p" href="https://developer.mozilla.org/en-US/">MDN Web Docs</a> are always a good place to start. If you want to get a better understanding of how all the newer features of CSS (flexbox, grid, SASS, etc.) fit together with all the tooling and techniques involved with it, check out my article
+        <a class="a-p" href="https://medium.com/actualize-network/modern-css-explained-for-dinosaurs-5226febe3525">Modern CSS Explained For Dinosaurs</a>.
       </blockquote>
     </section>
 
     <section>
       <img src="images/5.png" alt="dinosaurs secong image">
       <h3>Improving performance with HTML attributes</h3>
-      <p>At this point we have a website with reasonably well organized, semantic HTML. And if this is all we are considering, then our website would be done! Yet there are many areas where the site can be improved, in terms of both performance (how
-        quickly the website loads for a user) and maintainability (how easy the code is to change for a developer).</p>
+      <p>At this point we have a website with reasonably well organized, semantic HTML. And if this is all we are considering, then our website would be done! Yet there are many areas where the site can be improved, in terms of both performance (how quickly the website loads for a user) and maintainability (how easy the code is to change for a developer).
+      </p>
       <h4>The defer attribute for scripts</h4>
-      <p>For our website, one major optimization is to address the JavaScript files that are being loaded in the header. These files are large enough to actually slow down the website. In order to render a page, a web browser reads the given HTML and
-        converts it into a format it understands — the <a class="a-p" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">Document Object Model</a>, or DOM. As you might expect, a web browser starts at the top of
-        the HTML document and works its way down. That means if it sees a <code class="code-inline">&lt;script&gt;</code> tag, it will download and execute the script before moving on to the next line. You can see an illustration of this process here:
+      <p>For our website, one major optimization is to address the JavaScript files that are being loaded in the header. These files are large enough to actually slow down the website. In order to render a page, a web browser reads the given HTML and converts it into a format it understands — the
+      <a class="a-p" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">Document Object Model</a>, or DOM. As you might expect, a web browser starts at the top of the HTML document and works its way down. That means if it sees a
+      <code class="code-inline">&lt;script&gt;</code> tag, it will download and execute the script before moving on to the next line. You can see an illustration of this process here:
       </p>
 
       <img src="images/6.png" alt="parser script">
-      <figcaption class="figcaption">From <a class="figcaption-a" href="https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/">hacks.mozilla.org</a></figcaption>
+      <figcaption class="figcaption">From <a class="figcaption-a" href="https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/">hacks.mozilla.org</a>
+      </figcaption>
 
       <p>A common optimization hack is to move all JavaScript <code class="code-inline">&lt;script&gt;</code> tags out of the <code class="code-inline">&lt;head&gt;</code> tag and into the end of the <code class="code-inline">&lt;body&gt;</code> tag.
-        You can see this in Bootstrap’s own <a class="a-p" href="https://getbootstrap.com/docs/4.1/getting-started/introduction/#starter-template">starter template</a>:</p>
+      You can see this in Bootstrap’s own <a class="a-p" href="https://getbootstrap.com/docs/4.1/getting-started/introduction/#starter-template">starter template</a>:</p>
       <pre class="block-pre">
         <code class="code-block">
           &lt;!Doctype html&gt;
@@ -510,23 +518,27 @@
             &lt;/body&gt;
           &lt;/html&gt;
         </code>
-        </pre>
+      </pre>
       <p>This a optimization is a hack in the sense that this isn’t how HTML was designed to be organized — CSS and JavaScript files are meant to be defined in the <code class="code-inline">&lt;head&gt;</code> tag as seen earlier. However, keeping
-        everything in the <code class="code-inline">&lt;head&gt;</code> tag creates the unintentional side effect of slowing page rendering performance. Moving all <code class="code-inline">&lt;script&gt;</code> tags to the bottom of the <code
-          class="code-inline">&lt;body&gt;</code> tag is one way to improve performance.</p>
-      <p>In 2018, many websites still use this trick of moving all <code class="code-inline">&lt;script&gt;</code> tags to the bottom of the <code class="code-inline">&lt;body&gt;</code> tag. However, there is a less hacky approach that has been
-        supported by browsers for nearly 10 years — the <code class="code-inline">defer</code> attribute. By adding this attribute to a <code class="code-inline">&lt;script&gt;</code> tag, the browser will download the external file without blocking
-        the rest of the DOM from being built, and will execute the script after the DOM building is complete. You can see an illustration of this process here:</p>
+      everything in the <code class="code-inline">&lt;head&gt;</code> tag creates the unintentional side effect of slowing page rendering performance. Moving all
+      <code class="code-inline">&lt;script&gt;</code> tags to the bottom of the
+      <code class="code-inline">&lt;body&gt;</code> tag is one way to improve performance.
+      </p>
+      <p>In 2018, many websites still use this trick of moving all
+      <code class="code-inline">&lt;script&gt;</code> tags to the bottom of the
+      <code class="code-inline">&lt;body&gt;</code> tag. However, there is a less hacky approach that has been supported by browsers for nearly 10 years — the
+      <code class="code-inline">defer</code> attribute. By adding this attribute to a
+      <code class="code-inline">&lt;script&gt;</code> tag, the browser will download the external file without blocking the rest of the DOM from being built, and will execute the script after the DOM building is complete. You can see an illustration of this process here:
+      </p>
 
       <img src="images/7.png" alt="executing scripts with defer">
       <figcaption class="figcaption">From <a class="figcaption-a" href="https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/">hacks.mozilla.org</a></figcaption>
 
-      <p>In many cases, keeping <code class="code-inline">&lt;script&gt;</code> tags in the <code class="code-inline">&lt;head&gt;</code> with a <code class="code-inline">defer</code> attribute would result in faster loading pages, since the files can
-        be downloaded in parallel with the DOM being built. This is what Bootstrap’s starter template would look like using the defer attribute instead:</p>
+      <p>In many cases, keeping <code class="code-inline">&lt;script&gt;</code> tags in the <code class="code-inline">&lt;head&gt;</code> with a <code class="code-inline">defer</code> attribute would result in faster loading pages, since the files can be downloaded in parallel with the DOM being built. This is what Bootstrap’s starter template would look like using the defer attribute instead:
+      </p>
     </section>
 
   </div>
 
 </body>
-
 </html>

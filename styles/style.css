@@ -19,11 +19,11 @@ body, html {
 
 .a-p:link,
 .a-p:active,
-.a-p:visited{
+.a-p:visited {
   cursor: pointer;
   color: black;
-
 }
+
 .container h1 {
   font-family: medium-content-title-font, Georgia, Cambria, "Times New Roman", Times, serif;
   text-align: center;
@@ -34,17 +34,20 @@ body, html {
   line-height: 1.25;
   letter-spacing: 0;
 }
-.figcaption{
+
+.figcaption {
   width: 100%;
   top: 0;
   margin-top: 10px;
-  color: rgba(0,0,0,.68);
+  color: rgba(0, 0, 0, .68);
   outline: 0;
   text-align: center;
 }
-.figcaption-a{
-  color: rgba(0,0,0,.68);
+
+.figcaption-a {
+  color: rgba(0, 0, 0, .68);
 }
+
 .container p {
   cursor: text;
   font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
@@ -53,11 +56,11 @@ body, html {
   line-height: 1.58;
   letter-spacing: -.003em;
   font-weight: 400;
-  color: rgba(0,0,0,0.80);
+  color: rgba(0, 0, 0, 0.80);
   font-style: normal;
 }
 
-.container .li-p{
+.container .li-p {
   margin-top: 11px;
   margin-bottom: 0;
 }
@@ -68,63 +71,68 @@ body, html {
   width: 100%;
   background: rgba(0, 0, 0, .05);
   white-space: pre-wrap;
-  color: rgba(0,0,0,0.80);
+  color: rgba(0, 0, 0, 0.80);
   margin: 0;
 }
 
-
-.inline-code{
-  background: rgba(0,0,0,.05);
+.inline-code {
+  background: rgba(0, 0, 0, .05);
   padding: 3px 4px;
   margin: 0 2px;
 }
-.code-inline{
+
+.code-inline {
   font-family: Menlo, Monaco, "Courier New", Courier, monospace;
   font-size: 18px;
-  background: rgba(0, 0, 0, .05);
-
+  background: rgba(0, 0, 0, 0.05);
 }
-.code-block{
+
+.code-block {
   display: block;
 }
+
 .block-xmp,
 .code-block {
   margin: 0;
   padding: 0;
   margin-left: -70px;
 }
+
 .through {
   text-decoration: line-through;
 }
-.underline{
+
+.underline {
   text-decoration: underline;
 }
 
 .container h3,
-.container h4{
+.container h4 {
   margin-top: 46px;
   margin-bottom: 5px;
-  font-family: medium-content-sans-serif-font,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+  font-family: medium-content-sans-serif-font, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
   font-size: 30px;
   line-height: 1.15;
   letter-spacing: -.015em;
   font-weight: 600;
 }
-.container h4{
-    font-size: 24px;
+
+.container h4 {
+  font-size: 24px;
 }
+
 .container h3+p,
-.container h4+p{
+.container h4+p {
   margin-top: 8px;
 }
 
-.quotes{
+.quotes {
   font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
   margin-top: 28px;
   font-size: 21px;
   line-height: 1.58;
   letter-spacing: -.003em;
-  color: rgba(0,0,0,0.80);
+  color: rgba(0, 0, 0, 0.80);
   font-weight: 400;
   font-style: normal;
   font-style: italic;
